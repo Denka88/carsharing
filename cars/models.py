@@ -20,9 +20,9 @@ class CarsCharacteristics(models.Model):
     def __str__(self):
         return f"{self.car_id.name} ({self.name} - {self.description})"
 
-class CarsCategory(models.Model):
+class CarsCategories(models.Model):
     car_id = models.ForeignKey(Car, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.name} ({self.car_id.name})"
+        return f"{self.car_id} ({self.name})"
