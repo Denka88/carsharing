@@ -20,7 +20,9 @@
     {% if category.cars.all %}
         {% for car in category.cars.all %}
             <p>Автомобиль "{{ car.name }}"</p>
-            <img src="" alt="">
+            {% if car.car_image %}
+                <img src="{{ car.car_image.url }}" alt="Картинка авто" width="200px">
+            {% endif %}
         {% endfor %}
     {% else %}
         <p>Автомобилей в данной категории еще нет</p>
