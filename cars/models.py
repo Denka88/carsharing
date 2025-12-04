@@ -17,7 +17,7 @@ class Car(models.Model):
     color = models.CharField(max_length=100)
     year = models.PositiveIntegerField(blank=True, null=True)
     is_available = models.BooleanField(default=True)
-    car_image = models.ImageField(upload_to='images/', null=True, blank=True)
+    car_image = models.ImageField(upload_to='cars/', null=True, blank=False)
 
     category = models.ForeignKey(
         CarCategory,

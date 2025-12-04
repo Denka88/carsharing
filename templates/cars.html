@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="ru">
 <head>
@@ -6,6 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Автомобили</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body bgcolor="white">
 <ul>
@@ -16,18 +18,27 @@
     {% endfor %}
 </ul>
 {% for category in categories %}
-    <span> Категория "{{ category.name }}"</span>
-    {% if category.cars.all %}
-        {% for car in category.cars.all %}
-            <p>Автомобиль "{{ car.name }}"</p>
-            {% if car.car_image %}
-                <img src="{{ car.car_image.url }}" alt="Картинка авто" width="200px">
-            {% endif %}
-        {% endfor %}
-    {% else %}
-        <p>Автомобилей в данной категории еще нет</p>
-    {% endif %}
-    <br>
+    <div class="category">
+        <h3> Категория "{{ category.name }}"</h3>
+        {% if category.cars.all %}
+            {% for car in category.cars.all %}
+                <div class="card">
+                    <p>Автомобиль "{{ car.name }}"</p>
+                    {% if car.car_image %}
+                        <img src="{{ car.car_image.url }}" alt="Картинка авто" width="200px">
+                    {% else %}
+                        <img src="{% static 'img/kartinka.jpg' %}" alt="" width="200px">
+                    {% endif %}
+                </div>
+                
+            {% endfor %}
+        {% else %}
+            <p>Автомобилей в данной категории еще нет</p>
+        {% endif %}
+        <br>
+    </div>
+    <hr>
+    
 {% endfor %}
 </body>
 </html>
