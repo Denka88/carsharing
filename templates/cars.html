@@ -9,7 +9,7 @@
     <title>Автомобили</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-<body bgcolor="white">
+<body>
 <ul>
     {% for category in categories %}
         <li>
@@ -18,16 +18,16 @@
     {% endfor %}
 </ul>
 {% for category in categories %}
+    <h3> Категория "{{ category.name }}"</h3>
     <div class="category">
-        <h3> Категория "{{ category.name }}"</h3>
         {% if category.cars.all %}
             {% for car in category.cars.all %}
                 <div class="card">
                     <p>Автомобиль "{{ car.name }}"</p>
                     {% if car.car_image %}
-                        <img src="{{ car.car_image.url }}" alt="Картинка авто" width="200px">
+                        <img src="{{ car.car_image.url }}" alt="Картинка авто">
                     {% else %}
-                        <img src="{% static 'img/kartinka.jpg' %}" alt="" width="200px">
+                        <img src="{% static 'img/kartinka.jpg' %}" alt="">
                     {% endif %}
                 </div>
                 

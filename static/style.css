@@ -5,16 +5,20 @@ body{
 img{
     object-fit: cover;
     object-position: center;
+    width: 500px;
+    max-height: 281px;
 }
 
 .card{
     width: fit-content;
     padding: 0.4rem;
-    border: 2px solid #000000;
     background: #06a8a4;
     margin-bottom: 0.4rem;
 }
 
 .category{
-    display: inline;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
