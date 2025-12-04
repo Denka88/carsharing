@@ -1,3 +1,7 @@
+*{
+    font-family: "Comic Sans MS", serif;
+}
+
 body{
     background-color: beige;
 }
@@ -14,6 +18,28 @@ img{
     padding: 0.4rem;
     background: #06a8a4;
     margin-bottom: 0.4rem;
+    border-radius: 10px;
+}
+
+h3{
+    font-size: 1.6rem;
+}
+
+.category p{
+    font-size: 1.2rem;
+}
+
+.card a{
+    display: inline-flex;
+    padding: 0.45rem 1.5rem;
+    border-radius: 10px;
+    background: brown;
+    font-size: 1.2rem;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    color: white;
 }
 
 .category{
