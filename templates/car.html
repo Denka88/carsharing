@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ car.name }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <span><a href="/cars/">← Назад</a></span>
+    <h3>Автомобиль "{{ car.name }}"</h3>
+    {% if car.car_image %}
+        <img src="{{ car.car_image.url }}" alt="">
+    {% else %}
+        <img src="{% static 'img/kartinka.jpg' %}" alt="">
+    {% endif %}
+    <p>Название: {{ car.name }}</p>
+    <p>Цвет: {{ car.color }}</p>
+    {% if car.year %}
+        <p>Год: {{ car.year }}</p>
+    {% else %}
+        <p>Год: не указан</p>
+    {% endif %}
+    {% if car.is_available %}
+        <p>Статус: Доступен</p>
+        <p>Цена: {{ car.price }} рублей</p>
+    {% else %}
+        <p>Статус: Недоступен</p>
+        <p>Цена: <span style="text-decoration: line-through;">{{ car.price }} рублей</span></p>
+    {% endif %}
+
+
+    <h3>Характеристики автомобиля</h3>
+    <ul>
+        {% if characteristics %}
+            {% for characteristic in characteristics %}
+                <li>{{ characteristic.name }} - {{ characteristic.description }}</li>
+            {% endfor %}
+        {% else %}
+            <h4>Характеристик нет</h4>
+        {% endif %}
+
+    </ul>
+</body>
+</html>

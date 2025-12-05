@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from cars.models import Car, CarCategory
+from cars.models import Car, CarCategory, CarsCharacteristics
 
 # Create your views here.
 
@@ -19,3 +19,12 @@ def about(request):
 
 def contact_us(request):
     return HttpResponse("Страница для связи с нами")
+
+def car(request, id):
+    try:
+        car = Car.objects.get(pk=id)
+        characteristics = CarsCharacteristics.objects.filter(car=car)
+    except Car.DoesNotExist:
+        car = None
+    context = {"car": car, "characteristics": characteristics}
+    return render(request, "car.html", context)

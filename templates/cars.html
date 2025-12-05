@@ -29,7 +29,7 @@
                     {% else %}
                         <img src="{% static 'img/kartinka.jpg' %}" alt="">
                     {% endif %}
-                    <br><a href="#">Подробнее</a>
+                    <br><a href="{{ car.id }}">Подробнее</a>
                 </div>
                 
             {% endfor %}
