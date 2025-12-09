@@ -13,7 +13,6 @@ def register_view(request):
         form = CreateUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
             return redirect('/')
     else:
         form = CreateUserCreationForm()

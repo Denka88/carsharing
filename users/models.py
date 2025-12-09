@@ -7,7 +7,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     phone = models.CharField(
         max_length=20,
-        validators=[RegexValidator(r'^\+\d{10,15)$', "Введите корректный номер телефона")]
+        validators=[RegexValidator(r'^\+\d{10,15}$', "Введите корректный номер телефона")]
     )
     avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
 
