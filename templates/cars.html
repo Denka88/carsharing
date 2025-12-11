@@ -10,13 +10,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-<ul>
-    {% comment %}{% for category in categories %}
-        <li>
-            {{ category.name }}
-        </li>
-    {% endfor %}{% endcomment %}
-</ul>
+<a href="{% url 'logout' %}">Выход</a>
 {% for category in categories %}
     <h3> Категория "{{ category.name }}"</h3>
     <div class="category">

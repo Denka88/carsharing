@@ -4,9 +4,10 @@
 
 body{
     background-color: beige;
+    margin: 0 5rem;
 }
 
-img{
+.card img{
     object-fit: cover;
     object-position: center;
     width: 500px;
@@ -47,4 +48,8 @@ h3{
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+}
+
+.content img{
+    width: 600px;
 }

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+<div class="content">
     <span><a href="/cars/">← Назад</a></span>
     <h3>Автомобиль "{{ car.name }}"</h3>
     {% if car.car_image %}
@@ -41,5 +42,6 @@
         {% endif %}
 
     </ul>
+</div>
 </body>
 </html>
