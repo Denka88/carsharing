@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from cars import views
-from users.views import register_view
+from users.views import register_view, login_view, logout_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -29,6 +29,8 @@ urlpatterns = [
     path('cars/', views.cars_page, name='cars'),
     path('cars/<int:id>', views.car, name='car'),
     path('register/', register_view, name='register'),
+    path('logout/', logout_view, name='logout'),
+    path('login/', login_view, name='login'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
