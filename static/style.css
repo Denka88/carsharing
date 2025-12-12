@@ -30,7 +30,7 @@ h3{
     font-size: 1.2rem;
 }
 
-.card a{
+.card a, .content a{
     display: inline-flex;
     padding: 0.45rem 1.5rem;
     border-radius: 10px;

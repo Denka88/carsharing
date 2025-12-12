@@ -40,8 +40,10 @@
         {% else %}
             <h4>Характеристик нет</h4>
         {% endif %}
-
     </ul>
+    {% if user.is_authenticated %}
+        <br><a href="#">Забронировать</a>
+    {% endif %}
 </div>
 </body>
 </html>
