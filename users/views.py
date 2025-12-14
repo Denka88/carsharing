@@ -1,5 +1,4 @@
 from django.contrib.auth import get_user_model, login, authenticate, logout
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
@@ -14,7 +13,7 @@ def register_view(request):
         form = CreateUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            return redirect('/')
+            return redirect('/cars/')
     else:
         form = CreateUserCreationForm()
     return render(request, 'register.html', {'form': form})
@@ -28,7 +27,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('/')
+            return redirect('/cars/')
         else:
             messages.error(request, "Неверный логин или пароль")
 

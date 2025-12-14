@@ -1,0 +1,14 @@
+{% load static %}
+<header class="menu">
+    <div>
+        <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'cars' %}">Машины</a>
+    </div>
+    <div>
+        {% if user.is_authenticated %}
+            <span>{{ user.username }}</span> <a href="{% url 'logout' %}">Выход</a>
+        {% else %}
+            <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
+    </div>
+</header>

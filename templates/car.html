@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+{% include 'header.html' %}
 <div class="content">
-    <span><a href="/cars/">← Назад</a></span>
+    <span><a href="/cars/" style="margin-top: 2rem;" class="btn">← Назад</a></span>
     <h3>Автомобиль "{{ car.name }}"</h3>
     {% if car.car_image %}
         <img src="{{ car.car_image.url }}" alt="">
@@ -42,7 +43,11 @@
         {% endif %}
     </ul>
     {% if user.is_authenticated %}
-        <br><a href="#">Забронировать</a>
+        <br><a href="#" class="btn">Забронировать</a>
+    {% else %}
+        <div class="login-ask">
+            <span><a href="{% url 'login' %}">Войдите</a>, чтобы забронировать автомобиль</span>
+        </div>
     {% endif %}
 </div>
 </body>

@@ -6,14 +6,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Регистрация</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-<form method="post">
+{% include 'header.html' %}
+<h3>Регистрация</h3>
+<form method="post" class="register-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Зарегестрироваться</button>
+    <button type="submit">Зарегистрироваться</button>
+    <span>Есть аккаунт? <a href="{% url 'login' %}">Войти</a></span>
 </form>
 </body>
 </html>

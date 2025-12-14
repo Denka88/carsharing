@@ -10,11 +10,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-{% if user.is_authenticated %}
-    <a href="{% url 'logout/' %}">Выход</a>
-{% else %}
-    <a href="{% url 'login' %}">Войти</a>
-{% endif %}
+{% include 'header.html' %}
 {% for category in categories %}
     <h3> Категория "{{ category.name }}"</h3>
     <div class="category">
@@ -27,7 +23,7 @@
                     {% else %}
                         <img src="{% static 'img/kartinka.jpg' %}" alt="">
                     {% endif %}
-                    <br><a href="{{ car.id }}">Подробнее</a>
+                    <br><a href="{{ car.id }}" class="btn">Подробнее</a>
                 </div>
                 
             {% endfor %}

@@ -30,7 +30,7 @@ h3{
     font-size: 1.2rem;
 }
 
-.card a, .content a{
+.btn{
     display: inline-flex;
     padding: 0.45rem 1.5rem;
     border-radius: 10px;
@@ -52,4 +52,59 @@ h3{
 
 .content img{
     width: 600px;
+}
+
+.register-form p{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+}
+
+.register-form input, .login-form input{
+    border-radius: 0.4rem;
+    border: 2px solid black;
+    padding: 0.3rem;
+    font-size: 1rem;
+}
+
+.register-form button, .login-form button{
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #ff9494;
+    border-radius: 0.7rem;
+    cursor: pointer;
+    min-width: 6rem;
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    padding: 1rem;
+    background: #ff9494;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.menu div{
+    display: flex;
+    gap: 4rem;
+}
+
+.menu a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: beige;
+}
+
+.menu span{
+    font-size: 1.3rem;
+    color: white;
+}
+
+.login-ask{
+    border: 1px solid black;
+    width: 30rem;
+    text-align: center;
+    padding: 10px 5px;
 }

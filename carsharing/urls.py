@@ -24,6 +24,7 @@ from users.views import register_view, login_view, logout_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('index/', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('contact_us', views.contact_us, name='contact_us'),
     path('cars/', views.cars_page, name='cars'),
