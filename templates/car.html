@@ -43,7 +43,7 @@
         {% endif %}
     </ul>
     {% if user.is_authenticated %}
-        <br><a href="#" class="btn">Забронировать</a>
+        <br><a href="reservation/{{ car.id }}" class="btn">Забронировать</a>
     {% else %}
         <div class="login-ask">
             <span><a href="{% url 'login' %}">Войдите</a>, чтобы забронировать автомобиль</span>

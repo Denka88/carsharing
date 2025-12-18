@@ -6,25 +6,31 @@ from django.db import models
 from cars.models import Car
 from users.models import CustomUser
 
-# Create your models here.
-class Status(Enum):
-    NEW = 'New'
-    REJECTED = 'Rejected'
-    INACTIVE = 'Inactive'
-    APPROVED = 'Approved'
-
-class PaymentMethod(Enum):
-    CARD = 'Card'
-    SBP = 'SBP'
-
 class Reservation(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Бронировнаие авто'
+        verbose_name_plural = 'Бронирования авто'
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='reservations')
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     date_start = models.DateField()
     date_end = models.DateField()
-    payment_method = models.CharField(choices=[(tag.name, tag.value) for tag in PaymentMethod], default=PaymentMethod.CARD.value)
-    status = models.CharField(choices=[(tag.name, tag.value) for tag in Status], default=Status.NEW.value)
+
+    PAYMENT_METHODS = [
+        ('Card', 'Карта'),
+        ('SBP', 'СБП')
+    ]
+
+    STATUS_CHOICES = [
+        ('new', 'Новая'),
+        ('confirmed', 'Подтверждена'),
+        ('cancelled', 'Отклонена')
+    ]
+
+    payment_method = models.CharField(choices=PAYMENT_METHODS, max_length=20, default='new')
+    status = models.CharField(choices=STATUS_CHOICES, max_length=50, default='new')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.user.username}: {self.car.name}. {self.payment_method}. {self.date_start} - {self.date_end}. {self.status}'
+        return f'{self.user.username} - {self.car.name} ({self.status}) '
